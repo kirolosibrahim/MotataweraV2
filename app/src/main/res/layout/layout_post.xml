@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/home_layout_shado"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon_id"
+                android:layout_width="70dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/logo_for_home"
+                android:contentDescription="TODO" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/motatwera"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/time_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/_8m"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/post_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/_2020_11_27_5_300_150_2020_11_19"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/post_image_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/home_layout_shado"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <ImageView
+                android:id="@+id/like_id"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_margin="10dp"
+
+                android:src="@drawable/like_icon" />
+
+            <TextView
+                android:id="@+id/like_id_cont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_10" />
+
+            <ImageView
+                android:id="@+id/comment_id"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/chat_icon" />
+
+            <TextView
+                android:id="@+id/comment_id_cont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_20" />
+
+            <ImageView
+                android:id="@+id/shere_id"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/shere_icon" />
+
+            <TextView
+                android:id="@+id/shere_id_cont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_50" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+

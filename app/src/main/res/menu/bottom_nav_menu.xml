@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_baseline_notifications_none_24"
+        android:title="@string/Notificationfragment"/>
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_outline_forum_24"
+        android:title="@string/Chatfragment"/>
+
+    <item
+        android:id="@+id/nav_post"
+        android:icon="@drawable/ic_baseline_home_24"
+       android:enabled="true"
+
+        android:checked="true"
+        android:title="@string/Postfragment"/>
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_outline2_person_24"
+        android:title="@string/Profilefragment"/>
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_outline2_settings_24"
+        android:title="@string/Settingfragment"/>
+
+</menu>
