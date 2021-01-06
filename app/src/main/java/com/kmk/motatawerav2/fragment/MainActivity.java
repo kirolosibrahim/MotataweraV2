@@ -1,53 +1,32 @@
 package com.kmk.motatawerav2.fragment;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.kmk.motatawerav2.R;
-import com.kmk.motatawerav2.fragment.PostFragment;
-import com.kmk.motatawerav2.fragment.ProfileFragment;
 import com.kmk.motatawerav2.pojo.UsersModel;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-  public String user_id;
+  public  String user_id;
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user_id = getIntent().getStringExtra("id");
+        UsersModel usersModel = new UsersModel();
+        usersModel.setId(user_id);
 
-
-
-         user_id = getIntent().getStringExtra("id");
 
         //FindView
         TextView title = findViewById(R.id.titlefragment);

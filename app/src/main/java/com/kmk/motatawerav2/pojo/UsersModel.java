@@ -3,7 +3,7 @@ package com.kmk.motatawerav2.pojo;
 
 public class  UsersModel {
 
- private String id;
+ private static String id;
  private String password;
  private String name;
  private String picture;
