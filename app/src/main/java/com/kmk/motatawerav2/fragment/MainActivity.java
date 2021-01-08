@@ -2,11 +2,15 @@ package com.kmk.motatawerav2.fragment;
 
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -17,16 +21,13 @@ import com.kmk.motatawerav2.pojo.UsersModel;
 public class MainActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-  public  String user_id;
-  
+
+    public String user_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        user_id = getIntent().getStringExtra("id");
-        UsersModel usersModel = new UsersModel();
-        usersModel.setId(user_id);
-
 
         //FindView
         TextView title = findViewById(R.id.titlefragment);
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         navView.setSelectedItemId(R.id.nav_post);
         //Default title
         title.setText(R.string.Postfragment);
-        getResult(user_id);
+
         navView.setOnNavigationItemSelectedListener(v -> {
 
 
@@ -80,9 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-  public void getResult(String id) {
-
+    public void getResult(String id) {
 
 
         db.collection("Users")
@@ -100,26 +99,22 @@ public class MainActivity extends AppCompatActivity {
                             String Level = (String) document.get("Level");
 
 
-
                             Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
 
 
                             Bundle bundle = new Bundle();
 
-                            bundle.putString("User_name",name);
-                            bundle.putString("User_picture",picture);
-                            bundle.putString("User_gender",gender);
-                            bundle.putString("User_password",password);
-                            bundle.putString("User_Specialty",Specialty);
-                            bundle.putString("User_Level",Level);
+                            bundle.putString("User_name", name);
+                            bundle.putString("User_picture", picture);
+                            bundle.putString("User_gender", gender);
+                            bundle.putString("User_password", password);
+                            bundle.putString("User_Specialty", Specialty);
+                            bundle.putString("User_Level", Level);
 
 
                             // set PostFragment Arguments
                             PostFragment postFragment = new PostFragment();
                             postFragment.setArguments(bundle);
-
-
-
 
 
                         } else {
@@ -132,4 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
+

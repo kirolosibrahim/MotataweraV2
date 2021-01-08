@@ -1,11 +1,15 @@
 package com.kmk.motatawerav2.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,10 +30,13 @@ public class PostFragment extends Fragment {
     List<PostsModel> postslist = new ArrayList<PostsModel>();
     PostsAdapter padapter;
 
+    private long lastPressedTime;
+    private static final int PERIOD = 2000;
 
 
 
     FirebaseFirestore firebaseFirestore;
+
 
 
     @Override
@@ -38,13 +45,9 @@ public class PostFragment extends Fragment {
 
         //Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_post, container, false);
-        UsersModel usersModel = new UsersModel();
-        usersModel.getId();
 
 
-
-        Toast.makeText(getActivity(),   usersModel.getId(), Toast.LENGTH_SHORT).show();
-
+        String id = this.getActivity().getSharedPreferences("login", Context.MODE_PRIVATE).getString("id",null);
 
 
         recyclerView = view.findViewById(R.id.post_recyclerview);
@@ -95,4 +98,11 @@ public class PostFragment extends Fragment {
 //                    }
 //                });
     //   }
+
+
+
+
+
+
+
 }

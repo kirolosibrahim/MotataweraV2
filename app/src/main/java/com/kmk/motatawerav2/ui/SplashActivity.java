@@ -2,7 +2,6 @@ package com.kmk.motatawerav2.ui;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -13,8 +12,8 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Window;
-
 import com.kmk.motatawerav2.R;
+import com.kmk.motatawerav2.fragment.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,20 +23,33 @@ public class SplashActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
 
-        if (isNetworkConnectionAvailable()) {
-
-            new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                startActivity( new Intent(SplashActivity.this, LoginActivity.class)) ;
-            }, 1500);
-
-        }
-
+        CheckUser();
 
     }
 
+    private void CheckUser() {
+        String id = getSharedPreferences("login", Context.MODE_PRIVATE).getString("id",null);
+
+        if (isNetworkConnectionAvailable()) {
+
+            if (id == null) {
+                new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    finish();
+                }, 1500);
+            } else {
+                new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }, 1500);
+
+            }
+        }
+    }
+
+
     public void checkNetworkConnection() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        ;
         builder.setTitle("No internet Connection");
         builder.setMessage("Please turn on internet Connection ");
         builder.setPositiveButton("Connect", (dialog, id) -> {
