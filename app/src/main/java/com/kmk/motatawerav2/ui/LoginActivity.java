@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //Login Button on Click Method
         findViewById(R.id.btn_login).setOnClickListener(v -> {
+
             //Calling Method
             Validationdata();
         });
@@ -125,8 +126,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void OntextChanged()
     {
-
-
         text_id.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -160,82 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                 tilPassword.setErrorEnabled(false);
             }
         });
-
-
     }
-
-
-
-
-//
-//    private void Validationdata() {
-//
-//        String id = text_id.getText().toString().trim();
-//        String password = text_password.getText().toString().trim();
-//
-//        if (id.isEmpty()) {
-//            Toast.makeText(this, "pleas enter your id", Toast.LENGTH_SHORT).show();
-//
-//        } else if (password.isEmpty()) {
-//            Toast.makeText(this, "Pleas enter your password", Toast.LENGTH_SHORT).show();
-//        } else {
-//
-//            db.collection("Users")
-//                    .addSnapshotListener((value, error) -> {
-//                        if (error == null) {
-//                            if (value == null) {
-//                                Toast.makeText(this, "No Data Found", Toast.LENGTH_SHORT).show();
-//                            } else {
-//                                for (DocumentChange documentChange : value.getDocumentChanges()) {
-//                                    documentChange.getDocument();
-//                                    String idDb = documentChange
-//                                            .getDocument()
-//                                            .getId();
-//                                    String passwordDb = documentChange
-//                                            .getDocument()
-//                                            .getString("password");
-//                                    assert idDb != null;
-//                                    if (idDb.equals(id)) {
-//                                        assert passwordDb != null;
-//                                        if (passwordDb.equals(password)) {
-//
-//                                            isSuccess = true;
-//                                            break;
-//                                        } else {
-//                                            isSuccess = false;
-//                                        }
-//                                    } else {
-//                                        isSuccess = false;
-//                                    }
-//
-//                                }
-//                                if (isSuccess) {
-//                                    if (rememberme.isChecked()) {
-//                                        saveid(id);
-//                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//                                        finish();
-//                                    } else {
-//                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//                                        finish();
-//                                    }
-//                                } else {
-//                                    Toast.makeText(this, "No Found data", Toast.LENGTH_SHORT).show();
-//                                }
-//
-//                            }
-//
-//
-//                        } else {
-//                            Toast.makeText(this, error.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//
-//
-//                    });
-//
-//        }
-//
-//    }
-
 
     public void saveid(String id) {
 
