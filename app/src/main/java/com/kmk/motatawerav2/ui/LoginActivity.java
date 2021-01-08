@@ -4,15 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.database.core.utilities.Validation;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.kmk.motatawerav2.fragment.MainActivity;
@@ -20,10 +16,12 @@ import com.kmk.motatawerav2.R;
 import com.kmk.motatawerav2.pojo.UsersModel;
 
 public class LoginActivity extends AppCompatActivity {
+
     //View
     EditText text_id, text_password;
     CheckBox rememberme;
-    TextInputLayout tilID,tilPassword;
+    TextInputLayout tilID, tilPassword;
+
     //Connect To FireStore
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -35,24 +33,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         //FindView
         text_id = findViewById(R.id.etID);
         text_password = findViewById(R.id.etPassword);
         rememberme = findViewById(R.id.cb_rememberme);
-        tilID =  (TextInputLayout) findViewById(R.id.til_ID);
-         tilPassword = (TextInputLayout) findViewById(R.id.til_Password);
+        tilID = (TextInputLayout) findViewById(R.id.til_ID);
+        tilPassword = (TextInputLayout) findViewById(R.id.til_Password);
 
 
         //Login Button on Click Method
         findViewById(R.id.btn_login).setOnClickListener(v -> {
-
             //Calling Method
             Validationdata();
         });
 
-
     }
-
 
     private void Validationdata() {
 
@@ -98,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 if (isSuccess) {
                                     if (rememberme.isChecked()) {
+                                        Rememberme(true);
                                         saveid(id);
                                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                         finish();
@@ -124,8 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void OntextChanged()
-    {
+    private void OntextChanged() {
         text_id.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -161,11 +157,18 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void saveid(String id) {
-
+    private void saveid(String id) {
         getSharedPreferences("login", MODE_PRIVATE)
                 .edit()
                 .putString("id", id)
                 .apply();
     }
+    private void Rememberme(Boolean istrue){
+        getSharedPreferences("islog",MODE_PRIVATE)
+                .edit()
+                .putBoolean("log", istrue)
+                .apply();
+
+    }
+
 }

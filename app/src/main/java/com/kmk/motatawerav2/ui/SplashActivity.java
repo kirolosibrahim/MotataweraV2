@@ -22,17 +22,16 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
-
         CheckUser();
 
     }
 
     private void CheckUser() {
-        String id = getSharedPreferences("login", Context.MODE_PRIVATE).getString("id",null);
+        Boolean remember = getSharedPreferences("islog", Context.MODE_PRIVATE).getBoolean("log",false);
 
         if (isNetworkConnectionAvailable()) {
 
-            if (id == null) {
+            if (remember == false) {
                 new Handler(Looper.getMainLooper()).postDelayed(() -> {
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     finish();
