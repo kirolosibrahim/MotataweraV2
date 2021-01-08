@@ -13,8 +13,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/txtrememberpass"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-1dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/bg_shadow_layout"
         android:orientation="vertical">
 
@@ -51,11 +50,10 @@
 
         <TextView
             android:id="@+id/loginenterance"
-            android:layout_width="243dp"
-            android:layout_height="51dp"
-
-            android:layout_marginTop="150dp"
-            android:paddingStart="30dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
             android:text="@string/cominicate_with_a_hundred_of_students"
             android:textColor="@color/black"
             android:textSize="20sp" />
@@ -64,62 +62,66 @@
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:paddingLeft="20dp"
+            android:paddingTop="5dp"
             android:paddingRight="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:paddingBottom="5dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                app:errorEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_perm_identity_24"
                 app:startIconTint="@color/inputtextcolor">
+
                 <EditText
                     android:id="@+id/etID"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
+                    android:autofillHints=""
                     android:hint="@string/ID"
                     android:inputType="number"
-                    android:textColor="@color/inputtextcolor"
-                    android:autofillHints="" />
+                    android:textColor="@color/inputtextcolor" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
 
+                android:id="@+id/til_Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_baseline_lock_24"
+                android:layout_marginTop="5dp"
+                app:errorEnabled="true"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/inputtextcolor"
+                app:startIconDrawable="@drawable/ic_baseline_lock_24"
                 app:startIconTint="@color/inputtextcolor">
+
                 <EditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:hint="@string/password"
+                    android:importantForAutofill="no"
                     android:inputType="textPassword"
-                    android:textColor="@color/inputtextcolor"
-                    android:importantForAutofill="no" />
+                    android:textColor="@color/inputtextcolor" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
         </LinearLayout>
-<CheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/cb_rememberme"
-    android:text="Remember me"
-    android:checked="false"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="10dp"
-    />
 
+        <CheckBox
+            android:id="@+id/cb_rememberme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="Remember me" />
     </LinearLayout>
 
     <Button
